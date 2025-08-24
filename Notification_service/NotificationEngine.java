@@ -6,6 +6,12 @@ public class NotificationEngine implements IObserver {
     private List<INotificationStrategy> notificationStrategy;
     private NotificationObservable notificationObservable;
 
+    //When no strategy is passed
+    public NotificationEngine() {
+        this.notificationObservable =  NotificationService.getInstance().getObservable();
+        notificationObservable.addObserver(this);
+    }
+
     public NotificationEngine(NotificationObservable notificationObservable) {
         this.notificationObservable = notificationObservable;
     }
